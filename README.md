@@ -8,6 +8,5 @@ available - one returns the timetable by department and year, and the other one 
 
 The XML document and the XSD schema can be found in the storage/app folder. The XML contains a list of students, each one with a <student> tag, as well as <timetable> tags, each of them having department and year
 attributes in order to be easily identified. The <student> tag has the following elements: firstName, lastName, studentNumber, faculty, department, yearofstudy, while each <timetable> has the attributes department and yearofstudy.
-Each timetable has a <week> tag containing 4 (or less) <day> tags. For each day tag, we can have one or more classes. Classes are identified by type attribute, which could be either lecture or lab. Each class has a subjectName,
-teacher, startTime and endTime, which are mandatory (minOccurs set to 1), and could have a weekParity element which is for determining whether labs are on even or odd weeks (optional, minOccurs set to 0). In the XSD file
-there has been also taken care of the maxOccurs, which is unbounded for student, timetable and class.
+
+Each timetable has a <week> tag containing 4 (or less) <day> tags. For each day tag, we can have one or more classes. Classes are identified by type attribute, which could be either lecture or lab. Each class has a subjectName, teacher, startTime and endTime, which are mandatory (minOccurs set to 1), and could have a weekParity element which is for determining whether labs are on even or odd weeks (optional, minOccurs set to 0). 
