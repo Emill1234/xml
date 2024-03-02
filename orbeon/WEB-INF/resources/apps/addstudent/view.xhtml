@@ -1,0 +1,53 @@
+
+<xh:html xmlns:xh="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:xxf="http://orbeon.org/oxf/xml/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:fr="http://orbeon.org/oxf/xml/form-runner">
+    <xh:head>
+        <xh:title>Add student</xh:title>
+        <xf:model>
+            <xf:instance id="send" xmlns="">
+                <data>
+                    <firstName></firstName>
+                    <lastName></lastName> 
+                    <studentNumber></studentNumber>
+                    <faculty></faculty>
+                    <department></department>
+                    <yearofstudy></yearofstudy>
+                </data>
+            </xf:instance>
+            <xf:submission id="addstudent" method="urlencoded-post" action="http://xmlhw.hu/api/request/addStudent" replace="instance" instance="send"/>
+        </xf:model>
+    </xh:head>
+    <xh:body>
+        <xh:p>
+            <xf:input ref="instance('send')/firstName">
+                <xf:label>First name:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/lastName">
+                <xf:label>Last name:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/studentNumber">
+                <xf:label>Student number:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/faculty">
+                <xf:label>Faculty:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/department">
+                <xf:label>Department:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/yearofstudy">
+                <xf:label>Year of study:</xf:label>
+            </xf:input>
+            <br/>
+            <xf:submit submission="addstudent">
+                <xf:label>Add student</xf:label>
+            </xf:submit>
+
+        </xh:p>
+        <xh:p>
+        </xh:p>
+    </xh:body>
+</xh:html>

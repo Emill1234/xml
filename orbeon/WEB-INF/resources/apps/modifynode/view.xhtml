@@ -1,0 +1,83 @@
+
+<xh:html xmlns:xh="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:xxf="http://orbeon.org/oxf/xml/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:fr="http://orbeon.org/oxf/xml/form-runner">
+    <xh:head>
+        <xh:title>Change node information in XML timetable</xh:title>
+        <xf:model>
+            <xf:instance id="send" xmlns="">
+                <data>
+                    <department></department>
+                    <yearofstudy></yearofstudy>
+                    <dayName></dayName>
+                    <classType></classType>
+                    <subjectName></subjectName>
+                    <nodeToModify></nodeToModify>
+                    <modification></modification>
+                </data>
+            </xf:instance>
+            <xf:submission id="modifyNode" method="urlencoded-post" action="http://xmlhw.hu/api/request/modifyNode" replace="instance" instance="send"/>
+        </xf:model>
+    </xh:head>
+    <xh:body>
+        <xh:p>
+            <xf:input ref="instance('send')/department">
+                <xf:label>Department:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/yearofstudy">
+                <xf:label>Year of study:</xf:label>
+            </xf:input>
+            <xf:input ref="instance('send')/dayName">
+                <xf:label>Day:</xf:label>
+            </xf:input>
+            <xf:select1 ref="instance('send')/classType">
+                <xf:label>Lecture or lab?</xf:label>
+                    <xf:item>
+                        <xf:label>Lecture</xf:label>
+                        <xf:value>lecture</xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>Lab</xf:label>
+                        <xf:value>lab</xf:value>
+                    </xf:item>
+            </xf:select1>
+            <xf:input ref="instance('send')/subjectName">
+                <xf:label>Subject name:</xf:label>
+            </xf:input>
+            <br/>
+            <xf:select1 ref="instance('send')/nodeToModify">
+                <xf:label>What data would you like to modify?</xf:label>
+                    <xf:item>
+                        <xf:label>Subject name</xf:label>
+                        <xf:value>subjectName</xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>Teacher</xf:label>
+                        <xf:value>teacher</xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>Start time</xf:label>
+                        <xf:value>startTime</xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>End time</xf:label>
+                        <xf:value>endTime</xf:value>
+                    </xf:item>
+            </xf:select1>
+            <br/>
+            <xf:input ref="instance('send')/modification">
+                <xf:label>Enter new value for chosen data:</xf:label>
+            </xf:input>
+            <br/>
+            <xf:submit submission="modifyNode">
+                <xf:label>Modify timetable</xf:label>
+            </xf:submit>
+
+        </xh:p>
+        <xh:p>
+        </xh:p>
+    </xh:body>
+</xh:html>

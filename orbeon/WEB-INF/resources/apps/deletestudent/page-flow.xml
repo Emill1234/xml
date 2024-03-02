@@ -1,0 +1,4 @@
+<controller xmlns="http://www.orbeon.com/oxf/controller">
+      <page path="*" view="view.xhtml"/>
+      <epilogue url="oxf:/config/epilogue.xpl"/>
+  </controller>

@@ -1,0 +1,31 @@
+
+<xh:html xmlns:xh="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:xxf="http://orbeon.org/oxf/xml/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:fr="http://orbeon.org/oxf/xml/form-runner">
+    <xh:head>
+        <xh:title>Delete student</xh:title>
+        <xf:model>
+            <xf:instance id="send" xmlns="">
+                <data>
+                    <studentNumber></studentNumber>
+                </data>
+            </xf:instance>
+            <xf:submission id="addstudent" method="urlencoded-post" action="http://xmlhw.hu/api/request/deleteStudent" replace="instance" instance="send"/>
+        </xf:model>
+    </xh:head>
+    <xh:body>
+        <xh:p>
+            <xf:input ref="instance('send')/studentNumber">
+                <xf:label>Student number:</xf:label>
+            </xf:input>
+            <xf:submit submission="addstudent">
+                <xf:label>Delete student</xf:label>
+            </xf:submit>
+        </xh:p>
+        <xh:p>
+        </xh:p>
+    </xh:body>
+</xh:html>
